@@ -12,16 +12,16 @@ widgetNameIntr = function() {
 
     // вызывается каждый раз при переходе на страницу
     this.render = function() {
-        var bgc = $('.pipeline_wrapper').children('.pipeline_status:not(.h-hidden)').filter(
+        if($(location).attr('pathname').startsWith('/leads')){
+            var bgc = $('.pipeline_wrapper').children('.pipeline_status:not(.h-hidden)').filter(
             function(i){
                 return i==2
             }).find('.pipeline_status__head_line').css('background-color');
 
-        $('.pipeline_wrapper').children('.pipeline_status:not(.h-hidden)').filter(
-            function(i){
-                return i==2}).find('.pipeline_status__head_title').css('color', bgc);
+            $('.pipeline_wrapper').children('.pipeline_status:not(.h-hidden)').filter(
+                function(i){
+                    return i==2}).find('.pipeline_status__head_title').css('color', bgc)}
     };
-
     // вызывается один раз при инициализации виджета, в этой функции мы загружаем нужные данные, стили и.т.п
     this.init = function(){
 
